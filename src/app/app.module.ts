@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+
+import { IonicStorageModule } from '@ionic/storage';
+import { DatePipe } from '@angular/common';
 import { ContactProvider } from '../providers/contact/contact';
 
 @NgModule({
@@ -15,7 +18,8 @@ import { ContactProvider } from '../providers/contact/contact';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -26,6 +30,7 @@ import { ContactProvider } from '../providers/contact/contact';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatePipe,
     ContactProvider
   ]
 })
